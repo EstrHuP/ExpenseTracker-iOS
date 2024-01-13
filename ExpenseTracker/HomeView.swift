@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  ExpenseTracker
 //
 //  Created by EstrHuP on 9/1/24.
@@ -8,7 +8,8 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
+struct HomeView: View {
+    
     /// Visibility Status
     @AppStorage("isFirstTime") private var isFirstTime: Bool = true
     /// Activate Tab
@@ -32,6 +33,7 @@ struct ContentView: View {
                 .tag(TabModel.settings)
                 .tabItem { TabModel.settings.tabContent }
         }
+        .tint(.appTint)
         .sheet(isPresented: $isFirstTime) {
             IntroView()
                 .interactiveDismissDisabled()
@@ -40,5 +42,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    HomeView()
 }
